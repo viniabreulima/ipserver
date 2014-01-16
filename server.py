@@ -36,6 +36,9 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(result)
 
+    def log_message(self, format, *args):
+        return
+
 
 def run(port=8000):
     '''
@@ -54,7 +57,7 @@ def run(port=8000):
 if __name__ == '__main__':
     import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument('--port', '-p', default=8000)
+    ap.add_argument('--port', '-p', default=8000, type=int)
     args = ap.parse_args()
 
     run(args.port)
